@@ -2,26 +2,30 @@
 #
 # Table name: episodes
 #
-#  id             :integer(4)      not null, primary key
-#  name           :string(255)     not null
+#  id             :integer          not null, primary key
+#  name           :string(255)
 #  permalink      :string(255)
 #  description    :text
 #  notes          :text
 #  published_at   :datetime
+#  seconds        :integer
+#  file_sizes     :text
 #  created_at     :datetime
 #  updated_at     :datetime
-#  position       :integer(4)      default(0)
-#  comments_count :integer(4)      default(0), not null
-#  seconds        :integer(4)
-#  file_sizes     :text
-#  publish        :boolean(1)      default(FALSE)
+#  user_id        :integer
+#  comments_count :integer          default(0)
 #  still          :string(255)
-#  user_id        :integer(4)      default(1)
+#  publish        :boolean
+#  position       :integer          default(0)
 #  video_url      :string(255)
 #  download_url   :string(255)
+#  election_id    :integer
+#  votes_count    :integer          default(0)
+#  allow_download :boolean
+#  allow_comment  :boolean
 #
 
-class Episode < ActiveRecord::Base
+class Episode < ApplicationRecord
 
   mount_uploader :still, StillUploader
 
@@ -30,10 +34,12 @@ class Episode < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :votes
   belongs_to :user
+  belongs_to :election
 
   validates :name, presence: true
-  validates :permalink, presence: true
+  validates :permalink, presence: true, uniqueness: true
   validates :description, presence: true
   validates :notes, presence: true
   validates :seconds, numericality: { greater_than: 0 }
@@ -42,11 +48,11 @@ class Episode < ActiveRecord::Base
   before_validation :set_position
   before_create :set_published_at
 
-  default_scope -> { order('position DESC') }
+  default_scope { order('position DESC') }
 
-  scope :by_tag, lambda{ |tag_name| joins(:tags).where("tags.name = ?", tag_name) unless tag_name.blank? }
-  scope :by_keywords, lambda { |keywords|  where("episodes.name REGEXP ?", "#{keywords.split(" ").join('|')}") unless keywords.blank? }
-  scope :published, -> { where(publish: true) }
+  scope :by_tag, lambda { |tag_name| joins(:tags).where("tags.name = ?", tag_name) unless tag_name.blank? }
+  scope :by_keywords, lambda { |keywords| where("episodes.name REGEXP ?", "#{keywords.split(" ").join('|')}") unless keywords.blank? }
+  scope :published, lambda { where(publish: true) }
 
   def to_param
     permalink.to_s

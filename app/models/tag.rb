@@ -2,13 +2,13 @@
 #
 # Table name: tags
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)     not null
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
-class Tag < ActiveRecord::Base
+class Tag < ApplicationRecord
   has_many :taggings
   has_many :episodes, through: :taggings
   validates :name, presence: true

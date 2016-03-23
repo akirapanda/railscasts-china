@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  episode_id :integer
 #  user_id    :integer
-#  content    :text
+#  content    :text(65535)
 #  created_at :datetime
 #  updated_at :datetime
 #  ancestry   :string(255)

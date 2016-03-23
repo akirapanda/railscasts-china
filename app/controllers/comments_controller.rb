@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer          not null, primary key
+#  episode_id :integer
+#  user_id    :integer
+#  content    :text(65535)
+#  created_at :datetime
+#  updated_at :datetime
+#  ancestry   :string(255)
+#
+# Indexes
+#
+#  index_comments_on_ancestry  (ancestry)
+#
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :fetch_episode

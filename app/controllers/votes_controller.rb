@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer          not null
+#  episode_id  :integer          not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#  election_id :integer
+#
+
 class VotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_episode, only: [:create, :destroy]

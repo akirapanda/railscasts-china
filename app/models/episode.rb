@@ -5,11 +5,11 @@
 #  id             :integer          not null, primary key
 #  name           :string(255)
 #  permalink      :string(255)
-#  description    :text
-#  notes          :text
+#  description    :text(65535)
+#  notes          :text(65535)
 #  published_at   :datetime
 #  seconds        :integer
-#  file_sizes     :text
+#  file_sizes     :text(65535)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  user_id        :integer

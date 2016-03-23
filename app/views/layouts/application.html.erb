@@ -29,9 +29,11 @@
       <div class="user-nav">
         <% if user_signed_in? %>
           Logged in as <%= current_user.name %>
-          <%= link_to 'Logout', signout_path %>
+          <%=link_to destroy_user_session_path,:method=>:delete  do%>
+            Logout
+          <%end%>
         <% else %>
-          <%= link_to 'Sign in through GitHub', signin_path %>
+          <%= link_to 'Sign in through GitHub', new_user_session_path %>
         <% end %>
       </div>
       <div class="container-fluid logo">

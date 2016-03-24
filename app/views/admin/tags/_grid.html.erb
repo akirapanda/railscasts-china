@@ -1,0 +1,16 @@
+<%= grid(@tags_grid,:show_filters =>:no) do |g|
+
+  g.column :name=>"ID" ,:attribute => 'id' do |tag|
+    link_to tag.id,[:admin,tag]
+  end
+  
+  g.column :name=>'名称' ,:attribute => 'name'
+
+  g.column :name=>'创建时间' ,:attribute => 'created_at'
+
+  g.column :name=>"视频数量"  do |tag|
+  	tag.taggings.size
+  end
+end -%>
+
+

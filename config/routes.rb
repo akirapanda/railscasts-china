@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     end
 
     resources :users
+    
+    resources :tags  do
+      resources :episodes, only: [:index]
+    end
 
   end
 end

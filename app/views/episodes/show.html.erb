@@ -38,7 +38,7 @@
     </div>
 
     <div class="watch">
-      <a class="btn btn-primary">▶</a>
+      <a class="btn btn-primary">立即播放 ▶</a>
 <% if @episode.allow_download? -%>
       <a class="btn btn-info" href="<%= @episode.url_for_downloading %>">下载</a>
 <% end -%>
@@ -54,9 +54,9 @@
       <li><a href="#election" data-toggle="tab"><%= @episode.election.name %> voting</a></li>
 <% end -%>
 <% if @episode.allow_comment? -%>
-      <li><a href="#comments" data-toggle="tab"><%= @episode.comments_count %> Comments</a></li>
+      <li><a href="#comments" data-toggle="tab"><%= @episode.comments_count %> 评论</a></li>
 <% end -%>
-      <li><a href="#similar" data-toggle="tab">Similar Episodes</a></li>
+      <li><a href="#similar" data-toggle="tab">相似视频</a></li>
     </ul>
 
     <div class="tab-content">

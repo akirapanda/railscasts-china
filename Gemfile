@@ -23,8 +23,16 @@ gem 'omniauth', '>= 1.1.0'
 gem 'omniauth-github'
 gem 'bootstrap-sass', '>= 2.3.2', '< 3.0'
 gem 'coderay'
-gem 'kaminari'
 gem 'redcarpet'
+
+# search 
+gem "ransack"
+
+
+#pageinate
+gem 'wice_grid'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 0.1.3'
 
 # Form
 gem 'simple_form'

@@ -1,0 +1,13 @@
+<%= grid(@episodes_grid,:show_filters =>:no) do |g|
+
+  g.column :name=>"ID" ,:attribute => 'id' do |episode|
+    link_to episode.id,[:admin,episode]
+  end
+  
+  g.column :name=>"name" ,:attribute => 'name'
+
+
+  
+end -%>
+
+

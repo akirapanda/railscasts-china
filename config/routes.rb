@@ -25,5 +25,8 @@ Rails.application.routes.draw do
   ###
   namespace :admin do
     root 'home#index'
+    resources :episodes do
+      resources :comments
+    end
   end
 end

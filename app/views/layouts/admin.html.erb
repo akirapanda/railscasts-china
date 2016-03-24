@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "BanZhuanCasts" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "管理后台" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -60,9 +60,18 @@
           <div class="span8 offset1">
             <%= render 'layouts/messages' %>
           </div>
-        </div>
+        </div> <!--.row-->
+        <div class="row-fluid">
+          <div class="span3">
+            <%= render 'layouts/admin_side_menu'%>
+          </div>
 
-        <%= yield %>
+          <div class="span9">
+            <%= yield %>
+          </div>
+
+
+        </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
 

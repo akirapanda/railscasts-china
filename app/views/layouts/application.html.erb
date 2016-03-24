@@ -28,12 +28,18 @@
     <header>
       <div class="user-nav">
         <% if user_signed_in? %>
-          Logged in as <%= current_user.name %>
+          欢迎, <%= current_user.name %>
           <%=link_to destroy_user_session_path,:method=>:delete  do%>
-            Logout
+            登出
+          <%end%>
+
+
+          <%if admin_users?%>
+            <%=link_to "管理后台",admin_root_path%>
           <%end%>
         <% else %>
-          <%= link_to 'Sign in through GitHub', new_user_session_path %>
+          <%= link_to '登陆', new_user_session_path %>
+          <%= link_to '注册', new_user_registration_path %>
         <% end %>
       </div>
       <div class="container-fluid logo">

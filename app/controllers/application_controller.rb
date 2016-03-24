@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :user_signed_in?
   helper_method :correct_user?
+  helper_method :admin_users?
 
 private
   def admin_required
@@ -10,7 +11,9 @@ private
     end
   end
 
-
+  def admin_users?
+    return current_user.admin
+  end
 
   def user_signed_in?
     return true if current_user

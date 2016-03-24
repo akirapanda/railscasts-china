@@ -30,7 +30,12 @@
       </div>
 
       <div class="watch">
-        <a href="<%= episode_path(episode, autoplay: true) %>" class="btn btn-primary">Watch Episode</a>
+        <%=link_to episode_path(episode, autoplay: true),:class=>"btn btn-primary" do%>
+          观看视频
+        <%end%>
+        <%=link_to episode_path(episode, autoplay: false),:class=>"btn btn-danger" do%>
+          阅读教程
+        <%end%>
       </div>
     </section>
   </article>

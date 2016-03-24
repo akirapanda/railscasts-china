@@ -26,6 +26,10 @@ gem 'coderay'
 gem 'kaminari'
 gem 'redcarpet'
 
+# Form
+gem 'simple_form'
+gem 'bootstrap_helper'
+
 # Devise
 gem 'devise'
 

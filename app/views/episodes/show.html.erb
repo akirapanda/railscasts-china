@@ -38,9 +38,9 @@
     </div>
 
     <div class="watch">
-      <a class="btn btn-primary">Click to Play Video ▶</a>
+      <a class="btn btn-primary">▶</a>
 <% if @episode.allow_download? -%>
-      <a class="btn btn-info" href="<%= @episode.url_for_downloading %>">Download</a>
+      <a class="btn btn-info" href="<%= @episode.url_for_downloading %>">下载</a>
 <% end -%>
     </div>
 
@@ -49,7 +49,7 @@
 
   <div class="tabbable">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
+      <li class="active"><a href="#notes" data-toggle="tab">说明</a></li>
 <% if @episode.election.present? and current_user.present? -%>
       <li><a href="#election" data-toggle="tab"><%= @episode.election.name %> voting</a></li>
 <% end -%>
@@ -75,7 +75,7 @@
       </div>
 <% end -%>
       <div class="tab-pane" id="similar">
-        Similar Episodes
+        相似视频
       </div>
     </div>
   </div>

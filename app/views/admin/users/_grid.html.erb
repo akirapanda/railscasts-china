@@ -1,0 +1,15 @@
+<%= grid(@users_grid,:show_filters =>:no) do |g|
+
+  g.column :name=>"邮箱地址" ,:attribute => 'email' do |user|
+    link_to user.email,[:admin,user]
+  end
+  
+  g.column :name=>"用户名" ,:attribute => 'name'
+
+  g.column :name=>"注册时间" ,:attribute => 'created_at'
+
+  g.column :name=>"管理员" ,:attribute => 'admin'
+
+end -%>
+
+

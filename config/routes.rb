@@ -28,5 +28,8 @@ Rails.application.routes.draw do
     resources :episodes do
       resources :comments
     end
+
+    resources :users
+
   end
 end

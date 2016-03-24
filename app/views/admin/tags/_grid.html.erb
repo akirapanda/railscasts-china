@@ -6,10 +6,12 @@
   
   g.column :name=>'名称' ,:attribute => 'name'
 
-  g.column :name=>'创建时间' ,:attribute => 'created_at'
+  g.column :name=>'创建时间' ,:attribute => 'created_at' do |tag|
+  	l tag.created_at
+  end
 
   g.column :name=>"视频数量"  do |tag|
-  	tag.taggings.size
+  	tag.episodes.size
   end
 end -%>
 

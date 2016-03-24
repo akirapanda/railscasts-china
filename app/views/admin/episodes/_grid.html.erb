@@ -4,9 +4,15 @@
     link_to episode.id,[:admin,episode]
   end
   
-  g.column :name=>"name" ,:attribute => 'name'
+  g.column :name=>"名称" ,:attribute => 'name'
 
+  g.column :name=>"创建时间" ,:attribute => 'created_at' do |episode|
+  	l episode.created_at,:format=>:long
+  end
 
+  g.column :name=>"最后更新" ,:attribute => 'updated_at' do |episode|
+  	l episode.updated_at
+  end
   
 end -%>
 

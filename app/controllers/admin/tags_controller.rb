@@ -9,7 +9,7 @@ class Admin::TagsController < Admin::BaseController
   end
 
   def show
-
+    @episodes_grid = initialize_grid(@tag.episodes)
   end
 
   def edit
@@ -31,7 +31,7 @@ class Admin::TagsController < Admin::BaseController
   private 
 
   def fetch_tag
-    @user ||= Tag.find(params[:id])
+    @tag ||= Tag.find_by(:name=>params[:id])
   end
 end
 

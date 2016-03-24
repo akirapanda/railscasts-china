@@ -11,5 +11,5 @@
 
 class Tagging < ApplicationRecord
   belongs_to :tag
-  belongs_to :episodes
+  belongs_to :episode
 end

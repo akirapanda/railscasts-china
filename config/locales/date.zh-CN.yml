@@ -1,0 +1,19 @@
+"zh-CN":
+    "true": "是"
+    "false": "否"
+    will_paginate.previous_label: "上一页"
+    date:
+        formats:
+          # Use the strftime parameters for formats.
+          # When no format has been given, it uses default.
+          # You can provide other formats here if you like!
+            default: "%Y-%m-%d"
+            short: "%m月%d日"
+            long: "%Y年%m月%d日"
+            us: "%b %d,%Y"
+    time:
+        formats:
+            default: "%Y年%m月%d日 %H:%M:%S"
+            time: "%H:%M"
+            short: "%m月%d日 %H:%M"
+            long: "%Y年%m月%d日 %H:%M"

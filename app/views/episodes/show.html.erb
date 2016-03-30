@@ -39,9 +39,19 @@
 
     <div class="watch">
       <a class="btn btn-primary">立即播放 ▶</a>
+
+
 <% if @episode.allow_download? -%>
       <a class="btn btn-info" href="<%= @episode.url_for_downloading %>">下载</a>
 <% end -%>
+
+<%if admin_users?%>
+      <%=link_to edit_admin_episode_path(@episode),:class=>"btn btn-success" do%>
+        编辑
+      <%end%>
+<%end%>
+
+
     </div>
 
     <%= render 'shared/player' %>

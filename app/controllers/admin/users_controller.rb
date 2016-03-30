@@ -9,7 +9,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-
+    
   end
 
   

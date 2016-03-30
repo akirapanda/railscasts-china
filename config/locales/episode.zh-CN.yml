@@ -1,0 +1,18 @@
+"zh-CN":
+    activerecord:
+        models:
+            episode: "章节"
+        attributes:
+            episode:
+                name: "名称"
+                permalink: "短链接名称"
+                description: "简介"
+                notes: "备注"
+                still: "封面图片"
+                video_url: "视频播放地址"
+                download_url: "视频下载地址"
+                seconds: "视频时长(秒)"
+                allow_download: "允许下载"
+                allow_comment: "允许评论"
+                tag_list: "标签"
+

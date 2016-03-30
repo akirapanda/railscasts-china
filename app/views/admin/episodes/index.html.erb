@@ -1,1 +1,12 @@
-<%=render 'grid'%>
+<div class="row-fluid">
+  <div class="btn-group pull-right">
+
+    <%=link_to new_admin_episode_path,:class=>"btn btn-primary" do %>
+       新建章节
+    <%end%>
+  </div>
+</div>
+<hr/>
+<div class="row-fluid">
+  <%=render 'grid'%>
+</div>

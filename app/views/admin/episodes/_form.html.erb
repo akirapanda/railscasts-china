@@ -1,0 +1,66 @@
+
+<div>
+
+  <%= simple_form_for([:admin,@episode],:html=>{:class=>"form-horizontal new_user"}) do |f| %>
+    <div class="row-fluid">
+      <div class="span6">
+        <%=f.input :name -%>
+        <%=f.input :permalink -%>
+        <%=f.input :description -%>
+        <%=f.input :notes -%>
+
+        <div class="control-group">
+          <label class="control-label" for="still"><%=f.label :still%> </label>
+
+          <% if @episode.still.present? %>
+            <%= image_tag @episode.still.url %>
+          <% end %>
+
+          <div class="controls">
+            <%= f.file_field :still %>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="span6">
+
+
+
+        <%=f.input :video_url -%>
+        <%=f.input :download_url -%>
+
+        <%=f.input :seconds -%>
+
+        <%=f.input :allow_download -%>
+
+        <%=f.input :allow_comment -%>
+
+
+        <%=f.input :tag_list,:input_html=>{:placeholder=>"多个标签以,分割"} -%>
+
+        
+        <div class="control-group">
+          <label class="control-label" for="publish"><%=f.label :election%></label>
+
+
+          <div class="controls">
+            <%= f.select :election_id, options_for_select(Election.pluck(:name, :id), @episode.election_id), { include_blank: true } %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+
+  
+
+    <div class="form-acton">
+      <%= f.submit :class=>"btn btn-primary" %>
+    </div>
+
+
+  <% end %>
+
+</div>

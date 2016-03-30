@@ -13,6 +13,10 @@
   g.column :name=>"最后更新" ,:attribute => 'updated_at' do |episode|
   	l episode.updated_at
   end
+
+  g.column do |episode|
+    link_to "编辑",edit_admin_episode_path(episode),:class=>"btn btn-success"
+  end
   
 end -%>
 

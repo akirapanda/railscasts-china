@@ -12,7 +12,7 @@ private
   end
 
   def admin_users?
-    return current_user.admin
+    return current_user.try(:admin)
   end
 
   def user_signed_in?

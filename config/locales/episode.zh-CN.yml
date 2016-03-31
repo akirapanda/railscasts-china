@@ -2,6 +2,7 @@
     activerecord:
         models:
             episode: "章节"
+            user: "用户"
         attributes:
             episode:
                 name: "名称"
@@ -15,4 +16,15 @@
                 allow_download: "允许下载"
                 allow_comment: "允许评论"
                 tag_list: "标签"
-
+            user:
+                email: "邮件地址"
+                password: "密码"
+                password_confirmation: "确认密码"
+        errors:
+            models:
+                user:
+                    attributes:
+                        email:
+                            blank: "必须填写邮件地址"
+                        password:
+                            blank: "比图填写密码"
